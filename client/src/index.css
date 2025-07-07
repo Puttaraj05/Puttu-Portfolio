@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global background to prevent white flashes */
+html, body {
+  background: linear-gradient(to bottom, #181c2b, #232946, #1a1a2e);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent white flashes during transitions */
+* {
+  box-sizing: border-box;
+}
