@@ -4,6 +4,10 @@ A fullstack developer portfolio built with React (Vite, Tailwind CSS) and a Node
 
 ---
 
+## Portfolio Hero Page
+
+![Portfolio Hero](client/public/images/heropage.png) 
+
 ## Features
 - Modern, animated React frontend (Vite + Tailwind CSS)
 - 3D/animated sections (Three.js, Framer Motion)
@@ -90,3 +94,4 @@ VITE_API_URL=https://your-backend.onrender.com
 
 ## License
 MIT 
+
