@@ -22,10 +22,12 @@ export default function Contact({ darkMode }) {
     setFormSubmitted(false);
 
     try {
-      const apiUrl = "https://puttu-portfolio.onrender.com"; // Hardcoded for now
+      const apiUrl = "https://puttu-portfolio.onrender.com"; // Hardcoded for now - Updated at ${new Date().toISOString()}
+      console.log("Hardcoded URL check:", apiUrl); // Additional debug
       console.log("API URL being used:", apiUrl); // Debug log
       console.log("Environment variable value:", import.meta.env.VITE_API_URL); // Debug log
-      const response = await fetch(`${apiUrl}/api/contact`, {
+      const timestamp = Date.now();
+      const response = await fetch(`${apiUrl}/api/contact?t=${timestamp}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
