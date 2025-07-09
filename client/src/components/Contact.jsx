@@ -23,6 +23,8 @@ export default function Contact({ darkMode }) {
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL || "https://puttu-portfolio.onrender.com";
+      console.log("API URL being used:", apiUrl); // Debug log
+      console.log("Environment variable value:", import.meta.env.VITE_API_URL); // Debug log
       const response = await fetch(`${apiUrl}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
