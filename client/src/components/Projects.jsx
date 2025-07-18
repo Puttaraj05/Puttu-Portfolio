@@ -6,11 +6,14 @@ const projectImages = {
   "Snap-study": "/images/snapstudy.png",
   "Object-dimension-detector": "/images/objectdd.png",
   // Add more as needed
+   "Smart-Waste-Segregation-Assistant": "/images/smartwaste.png", 
+   
 };
 
 const projectDescriptions = {
   "Snap-study": "SnapStudy is an AI-powered application that helps students and learners generate comprehensive study materials from various sources. Upload documents, provide links, or input text to automatically generate notes, summaries, flashcards, quizzes, and more.",
   "Object-dimension-detector": "A web application for real-time object dimension measurement using computer vision and your camera. Built with Flask and OpenCV, this tool allows you to measure objects, save annotated images, and manage your measurement history—all from your browser.",
+  "Smart-Waste-Segregation-Assistant": "A smart assistant that uses AI and IoT to automatically segregate waste into different categories, promoting efficient recycling and waste management. Built with Python, TensorFlow, and Arduino, this project demonstrates real-world application of machine learning and embedded systems.",
   // Add more as needed
 };
 
@@ -19,8 +22,7 @@ const ProjectCard = ({ repo, index }) => {
   return (
     <motion.div
       whileHover={{ 
-        scale: 1.05, 
-        y: -15,
+        scale: 1.03, // Only scale, no y movement
         transition: { 
           type: "tween", 
           duration: 0.2, 
@@ -109,9 +111,9 @@ const Projects = () => {
     fetch("https://api.github.com/users/Puttaraj05/repos")
       .then((res) => res.json())
       .then((data) => {
-        // Sort to highlight Snap-study and Object-dimension-detector first
-        const highlight = ["Snap-study", "Object-dimension-detector"];
-        // Only show Snap-study and Object-dimension-detector
+        // Sort to highlight Snap-study, Object-dimension-detector, and Smart-Waste-Segregation-Assistant first
+        const highlight = ["Snap-study", "Object-dimension-detector", "Smart-Waste-Segregation-Assistant"];
+        // Only show highlighted projects
         const filtered = data.filter(r => highlight.includes(r.name));
         setRepos(filtered);
       });
@@ -142,7 +144,8 @@ const Projects = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-wrap gap-7 justify-center"
+            className="flex flex-nowrap gap-7 justify-start overflow-x-auto pb-4 hide-scrollbar"
+            style={{ WebkitOverflowScrolling: 'touch' }}
           >
             {repos.length === 0 ? (
               <div className="text-center text-lg text-gray-300">Loading projects...</div>
@@ -151,7 +154,7 @@ const Projects = () => {
                 <ProjectCard key={repo.id} repo={repo} index={index} />
               ))
             )}
-            </motion.div>
+          </motion.div>
 
           <div className="text-center mt-12">
             <a
