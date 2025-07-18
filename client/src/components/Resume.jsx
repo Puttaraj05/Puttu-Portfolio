@@ -27,7 +27,7 @@ const Resume = ({ darkMode }) => {
                 </div>
 
                 <a
-                  href="#"
+                  href="/images/Resume_Puttaraj_hiremath.pdf"
                   className="mt-4 md:mt-0 px-6 py-3 bg-[#8f00ff] text-[#e0f2ff] font-medium rounded-lg shadow-md hover:bg-[#00f2fe] hover:text-[#232946] transition-colors duration-300 flex items-center cursor-pointer !rounded-button whitespace-nowrap"
                 >
                   <i className="fas fa-download mr-2"></i>
